@@ -30,8 +30,7 @@ output looks like this:
 
     dataset = np.loadtxt("kin40ktraindata.txt", delimiter=",")
     
-    # split into input (X) and output (Y) variables
-    
+        
     X_train = dataset[:,0:8]
     
     y_train = dataset[:,8]
