@@ -44,4 +44,8 @@ output looks like this:
     
         X_valid, y_valid = X_test, y_test
     
-    
+ 5. **find all public comments for a Github user**
+ 
+ We can do this with an advanced search query. In the Issues search box, enter "commenter:username".
+
+
