@@ -63,3 +63,13 @@ output looks like this:
         insert nameserver 8.8.8.8
         
         /etc/init.d/networking restart
+
+8. **Install pip with a specific version**
+
+I take an example with Keras
+
+        pip install --upgrade protobuf==2.0
+
+9. **Running Keras-GP**
+
+Keras-GP is a great project. It however may run with Keras 2.0 only. Upgrading Keras would screw up everything!
