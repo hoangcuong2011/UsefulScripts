@@ -73,3 +73,26 @@ I take an example with Keras
 9. **Running Keras-GP**
 
 Keras-GP is a great project. It however may run with Keras 2.0 only. Upgrading Keras would screw up everything!
+
+10. **Enable 64bit with Octave**
+
+Octave is a great software. The only thing I want to make complaint is about to get rid of the error:
+
+        **memory exhausted or requested size too large for range of Octave’s index type**
+        
+(see this: http://calaba.tumblr.com/post/107087607479/octave-64)
+
+Basically, what we have to do is to  switch –enable-64 when compiling from the source. It is however is not easy at all to do so. The link I found pretty helpful is the following: https://github.com/siko1056/GNU-Octave-enable-64. Mark it, and I believe one day you might need it.
+
+
+Note: to follow the steps described in the link above, you should install the several packages:
+
+        sudo apt-get lzip
+
+        sudo apt-get install libtool-bin
+        
+        sudo apt-get install autoconf
+
+
+
+
