@@ -48,4 +48,18 @@ output looks like this:
  
  We can do this with an advanced search query. In the Issues search box, enter "commenter:username".
 
+6. **Proprietary GPU Drivers**
 
+        sudo add-apt-repository ppa:graphics-drivers/ppa
+        
+        sudo apt-get update
+        
+        sudo apt-get install nvidia-384
+
+7. **Connecting to the Internet in the recovery mode**
+
+        vi /etc/resolve.conf
+        
+        insert nameserver 8.8.8.8
+        
+        /etc/init.d/networking restart
