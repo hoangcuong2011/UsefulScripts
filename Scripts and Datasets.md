@@ -93,6 +93,14 @@ Note: to follow the steps described in the link above, you should install the se
         
         sudo apt-get install autoconf
 
+To validate once you finish building the software, you can enter the following command: 
 
+        a = zeros (1024 * 1024 * 1024 * 3, 1, 'int8'); 
+
+The default version should give the following error
+
+        memory exhausted or requested size too large for range of Octave's index type -- trying to return to prompt
+
+Meanwhile, your version should work fine for this command.
 
 
