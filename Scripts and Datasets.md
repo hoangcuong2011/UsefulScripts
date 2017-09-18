@@ -103,6 +103,15 @@ The default version should give the following error
 
 Meanwhile, your version should work fine for this command.
 
-11. Check Ubuntu version 
+11. **Check Ubuntu version**
 
         lsb_release -a
+
+12. **TexLive**
+Texlive and related packages
+
+        sudo apt-get install texlive
+        
+        sudo apt-get install texlive-latex-extra
+        
+        sudo apt-get install texlive-lang-all
