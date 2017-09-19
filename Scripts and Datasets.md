@@ -115,3 +115,7 @@ Texlive and related packages
         sudo apt-get install texlive-latex-extra
         
         sudo apt-get install texlive-lang-all
+
+13. **Cut and Paste in VIM**
+
+        press dd to cut a line of text, and then press p
