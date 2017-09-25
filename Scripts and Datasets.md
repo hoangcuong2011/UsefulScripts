@@ -132,3 +132,10 @@ Texlive and related packages
         
         print(end - start)
 
+
+15. **kmeans in python**
+
+       
+        from scipy.cluster.vq import kmeans2
+        
+        Z_100 = kmeans2(np.array(X), 100, minit='points')[0]
