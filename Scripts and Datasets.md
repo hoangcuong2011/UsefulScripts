@@ -139,3 +139,8 @@ Texlive and related packages
         from scipy.cluster.vq import kmeans2
         
         Z_100 = kmeans2(np.array(X), 100, minit='points')[0]
+        
+        
+16. **List all environments in conda**
+
+        conda info --envs
