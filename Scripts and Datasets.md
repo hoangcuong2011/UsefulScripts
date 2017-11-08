@@ -144,3 +144,7 @@ Texlive and related packages
 16. **List all environments in conda**
 
         conda info --envs
+
+17. **Clone conda enviroments**
+
+        conda create --name py27_environment_tensorflow_gpus --clone py27_environment
