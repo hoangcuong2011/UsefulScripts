@@ -148,3 +148,21 @@ Texlive and related packages
 17. **Clone conda enviroments**
 
         conda create --name py27_environment_tensorflow_gpus --clone py27_environment
+        
+18. **A normal script file to upload to a cluster**
+
+        #!/bin/sh
+        #PBS -q interactive
+        #PBS -N my_first_trial
+        #PBS -l select=1:ncpus=1
+        #PBS -l place=free
+        #PBS -V
+        cd $PBS_O_WORKDIR
+
+        sh ./script.sh
+        
+Note: production is the normal queue for processing your work. development is used when you are testing an application. Jobs submitted to this queue can not request more than 8 cores or use more than 1 hour of total CPU time. If the job exceeds these parameters, it will be automatically killed. Development queue has higher priority and thus jobs in this queue have shorter wait time. interactive is used for quick interactive tests. Jobs submitted into this queue allow you interactive terminal session on one of the compute nodes. They can not use more than 4 cores or use more than a total of 15 minutes of compute time.
+
+
+
+
