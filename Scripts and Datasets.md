@@ -166,3 +166,7 @@ Note: production is the normal queue for processing your work. development is us
 
 
 
+19. **Check queue**
+
+        qstat -u cuong.hoang
+
