@@ -169,6 +169,9 @@ Note: production is the normal queue for processing your work. development is us
 19. **Check queue**
 
         qstat -u cuong.hoang
+        
+        qstat -f | grep -C 3 cuong.hoang
+        
 
 20. **Good conda create new enviroment command**
 
