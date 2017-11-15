@@ -176,3 +176,7 @@ Note: production is the normal queue for processing your work. development is us
 20. **Good conda create new enviroment command**
 
         conda create -n py27_env_tensor_gpu_pip_local numpy pip tensorflow-gpu python=2.7
+        
+21. **Find command without Permission denied**
+
+        find / -name "octave" 2>/dev/null
