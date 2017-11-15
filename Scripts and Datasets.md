@@ -180,3 +180,10 @@ Note: production is the normal queue for processing your work. development is us
 21. **Find command without Permission denied**
 
         find / -name "octave" 2>/dev/null
+
+22. **Install matlab.engine**
+
+        cd $(dirname $(realpath $(which matlab)))/../extern/engines/python
+
+        python setup.py build --build-base=$(mktemp -d) install
+
