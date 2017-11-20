@@ -187,3 +187,11 @@ Note: production is the normal queue for processing your work. development is us
 
         python setup.py build --build-base=$(mktemp -d) install
 
+23. **How to fix: “UnicodeDecodeError: 'ascii' codec can't decode byte”**
+
+https://stackoverflow.com/questions/21129020/how-to-fix-unicodedecodeerror-ascii-codec-cant-decode-byte see here
+        import sys  
+
+        reload(sys)  
+        
+        sys.setdefaultencoding('utf8')
