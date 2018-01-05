@@ -195,3 +195,22 @@ https://stackoverflow.com/questions/21129020/how-to-fix-unicodedecodeerror-ascii
         reload(sys)  
         
         sys.setdefaultencoding('utf8')
+
+24. Replacescript python
+
+
+        filename = 'de_en_task3_train_features'
+        # Read in the file
+        with open(filename, 'r') as file :
+        filedata = file.read()
+
+        # Replace the target string
+        filedata = filedata.replace('\t', ',')
+
+        # Write the file out again
+        with open(filename+'.replaced', 'w') as file:
+        file.write(filedata)
+
+
+
+
