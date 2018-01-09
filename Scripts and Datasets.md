@@ -196,7 +196,7 @@ https://stackoverflow.com/questions/21129020/how-to-fix-unicodedecodeerror-ascii
         
         sys.setdefaultencoding('utf8')
 
-24. Replacescript python
+24. **Replacescript python**
 
 
         filename = 'de_en_task3_train_features'
@@ -211,6 +211,48 @@ https://stackoverflow.com/questions/21129020/how-to-fix-unicodedecodeerror-ascii
         with open(filename+'.replaced', 'w') as file:
         file.write(filedata)
 
+25. **Shuffle two arrays in Numpy**
 
+Reference: https://play.pixelblaster.ro/blog/2017/01/20/how-to-shuffle-two-arrays-to-the-same-order/
 
+                >>> import numpy as np
+                >>> x = np.arange(10)
+                >>> y = np.arange(9, -1, -1)
+                >>> x
+                array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+                >>> y
+                array([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+                >>> s = np.arange(x.shape[0])
+                >>> np.random.shuffle(s)
+                >>> s
+                array([9, 3, 5, 2, 6, 0, 8, 1, 4, 7])
+                >>> x[s]
+                array([9, 3, 5, 2, 6, 0, 8, 1, 4, 7])
+                >>> y[s]
+                array([0, 6, 4, 7, 3, 9, 1, 8, 5, 2])
+                
+26. **Shuffle data and train in minibach - tensorflow**
+Reference: https://github.com/hoangcuong2011/DeepKernelLearning/blob/master/Classification_MLP_with_correct_Epoch_implementation.py
 
+                for i in range(100): #100 epochs
+                        shuffle = np.arange(y_train.size)
+                        np.random.shuffle(shuffle)
+                        print(shuffle)
+                        x_train_shuffle = x_train[shuffle]
+                        y_train_shuffle = y_train[shuffle]
+                        data_indx = 0
+                        while data_indx<y_train.size:
+                                lastIndex = data_indx + minibatch_size
+                                if lastIndex>=y_train.size:
+                                        lastIndex = y_train.size
+                                indx_array = np.mod(np.arange(data_indx, lastIndex), x_train_shuffle.shape[0])
+                                #print("array", indx_array)
+                                data_indx += minibatch_size
+                                #print(data_indx)
+                                fd = gp_model.feeds or {}
+                                fd.update({
+                                phs.keep_prob: 1.0,
+                                phs.ximage_flat: x_train_shuffle[indx_array],
+                                phs.label: y_train_shuffle[indx_array]
+                                })
+                                _, loss_evd = tf_session.run([minimise, -gp_model.objective], feed_dict=fd)            
