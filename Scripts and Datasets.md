@@ -266,7 +266,7 @@ Reference: https://github.com/hoangcuong2011/DeepKernelLearning/blob/master/Clas
         # convert integers to dummy variables (i.e. one hot encoded)
         y_test = np_utils.to_categorical(encoded_Y)
 
-28. **Read tensorflow trainable variables' value"
+28. **Read tensorflow trainable variables' value**
 
         variables_names =[v.name for v in tf.trainable_variables()]
         values = sess.run(variables_names)
