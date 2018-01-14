@@ -259,10 +259,10 @@ Reference: https://github.com/hoangcuong2011/DeepKernelLearning/blob/master/Clas
 
 27. **Convert number to one-hot vector representation**
 
-
-    encoder = LabelEncoder()
-    encoder.fit(y_test)
-    encoded_Y = encoder.transform(y_test)
-    # convert integers to dummy variables (i.e. one hot encoded)
-    y_test = np_utils.to_categorical(encoded_Y)
+        from sklearn.preprocessing import LabelEncoder
+        encoder = LabelEncoder()
+        encoder.fit(y_test)
+        encoded_Y = encoder.transform(y_test)
+        # convert integers to dummy variables (i.e. one hot encoded)
+        y_test = np_utils.to_categorical(encoded_Y)
 
