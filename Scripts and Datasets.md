@@ -273,3 +273,12 @@ Reference: https://github.com/hoangcuong2011/DeepKernelLearning/blob/master/Clas
         for k,v in zip(variables_names, values):
                 print(k, v)
     
+29. **tokenize with NLTK**
+
+        >>> import nltk
+        >>> sentence = """At eight o'clock on Thursday morning
+        ... Arthur didn't feel very good."""
+        >>> tokens = nltk.word_tokenize(sentence)
+        >>> tokens
+        ['At', 'eight', "o'clock", 'on', 'Thursday', 'morning',
+        'Arthur', 'did', "n't", 'feel', 'very', 'good', '.']
