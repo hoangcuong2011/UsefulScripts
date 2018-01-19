@@ -282,3 +282,15 @@ Reference: https://github.com/hoangcuong2011/DeepKernelLearning/blob/master/Clas
         >>> tokens
         ['At', 'eight', "o'clock", 'on', 'Thursday', 'morning',
         'Arthur', 'did', "n't", 'feel', 'very', 'good', '.']
+
+30. **shuffle data in linux**
+
+https://shapeshed.com/unix-shuf/
+
+shuf cards.txt
+4D
+9D
+QC
+3S
+6D
+
