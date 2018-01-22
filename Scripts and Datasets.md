@@ -294,3 +294,10 @@ QC
 3S
 6D
 
+
+31. **readfile python**
+        with open("feature.py") as f:	
+	        for line in f:
+		        line = line.strip()
+		        if(len(line)>0):
+			        print(line)
