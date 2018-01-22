@@ -260,6 +260,7 @@ Reference: https://github.com/hoangcuong2011/DeepKernelLearning/blob/master/Clas
 27. **Convert number to one-hot vector representation**
 
         from sklearn.preprocessing import LabelEncoder
+	from keras.utils import np_utils
         encoder = LabelEncoder()
         encoder.fit(y_test)
         encoded_Y = encoder.transform(y_test)
