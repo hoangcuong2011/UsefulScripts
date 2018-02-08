@@ -302,3 +302,16 @@ QC
 		        line = line.strip()
 		        if(len(line)>0):
 			        print(line)
+
+32. How to turn off dropout for testing in Tensorflow?
+https://stackoverflow.com/questions/44971349/how-to-turn-off-dropout-for-testing-in-tensorflow
+
+
+The easiest way is to change the keep_prob parameter using a placeholder_with_default:
+
+prob = tf.placeholder_with_default(1.0, shape=())
+layer = tf.nn.dropout(layer, prob)
+in this way when you train you can set the parameter like this:
+
+sess.run(train_step, feed_dict={prob: 0.5})
+and when you evaluate the default value of 1.0 is used.
