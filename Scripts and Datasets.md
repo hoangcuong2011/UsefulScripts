@@ -303,15 +303,41 @@ QC
 		        if(len(line)>0):
 			        print(line)
 
-32. How to turn off dropout for testing in Tensorflow?
+32. **How to turn off dropout for testing in Tensorflow?**
 https://stackoverflow.com/questions/44971349/how-to-turn-off-dropout-for-testing-in-tensorflow
 
 
 The easiest way is to change the keep_prob parameter using a placeholder_with_default:
 
-prob = tf.placeholder_with_default(1.0, shape=())
-layer = tf.nn.dropout(layer, prob)
+	prob = tf.placeholder_with_default(1.0, shape=())
+	layer = tf.nn.dropout(layer, prob)
 in this way when you train you can set the parameter like this:
 
-sess.run(train_step, feed_dict={prob: 0.5})
+	sess.run(train_step, feed_dict={prob: 0.5})
 and when you evaluate the default value of 1.0 is used.
+
+
+33. **Read and convert words to word count**
+
+	def read_data(raw_text):
+		content = raw_text
+		content = content.split() #splits the text by spaces (default split character)
+		content = np.array(content)
+		#print(content)
+		content = np.reshape(content, [-1, ])
+		#print(content)
+		return content
+
+	training_data = read_data(fable_text)
+
+	def build_dictionaries(words):
+	    count = collections.Counter(words).most_common() #creates list of word/count pairs;
+	    print(count)
+	    dictionary = dict()
+	    for word, _ in count:
+		dictionary[word] = len(dictionary) #len(dictionary) increases each iteration
+		reverse_dictionary = dict(zip(dictionary.values(), dictionary.keys()))
+	    return dictionary, reverse_dictionary
+
+	dictionary, reverse_dictionary = build_dictionaries(training_data)
+
