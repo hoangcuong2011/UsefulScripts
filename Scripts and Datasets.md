@@ -341,3 +341,8 @@ and when you evaluate the default value of 1.0 is used.
 
 	dictionary, reverse_dictionary = build_dictionaries(training_data)
 
+34. **updatedb in MACOS**
+
+sudo /usr/libexec/locate.updatedb
+
+
