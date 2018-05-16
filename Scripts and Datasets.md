@@ -435,3 +435,25 @@ dependencies {
 
 // tag::wrapper[]
 // end::wrapper[]
+
+
+38. **Common Jsoup commands**
+
+
+        
+        String html = "<p>An <a href='http://example.com/'><b>example</b></a> link.</p>";
+        doc = Jsoup.parse(html);
+        Element linkE = doc.select("a").first();
+
+        String text = doc.body().text(); // "An example link"
+        String linkHref = linkE.attr("href"); // "http://example.com/"
+        String linkText = linkE.text(); // "example""
+
+        String linkOuterH = linkE.outerHtml();
+        // "<a href="http://example.com"><b>example</b></a>"
+        String linkInnerH = linkE.html(); // "<b>example</b>"
+        
+        System.out.println(text);
+	
+	
+	
