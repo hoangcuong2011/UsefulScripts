@@ -346,7 +346,7 @@ and when you evaluate the default value of 1.0 is used.
 sudo /usr/libexec/locate.updatedb
 
 
-35. pom.xml - maven
+35. **pom.xml - maven**
 
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -394,3 +394,9 @@ https://spring.io/guides/gs/maven/
 
 
 
+36. **show line number in vim**
+
+add this line to ~/.vimrc (if not exist, create a new file)
+
+:set nu
+and save the file
