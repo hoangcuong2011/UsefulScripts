@@ -463,3 +463,7 @@ On OS X apps I can switch between apps using ⌘+Tab.
 
 And I can switch between multiple "normal" windows of an app using ⌘+`.
 
+40. **Copy a file to clipboard in MacOS**
+
+pbcopy < ~/.ssh/id_rsa.pub
+
