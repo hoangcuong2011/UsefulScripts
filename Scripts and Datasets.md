@@ -456,4 +456,10 @@ dependencies {
         System.out.println(text);
 	
 	
-	
+39. **Shortcut in MacOS**
+
+On OS X apps I can switch between apps using ⌘+Tab.
+
+
+And I can switch between multiple "normal" windows of an app using ⌘+`.
+
