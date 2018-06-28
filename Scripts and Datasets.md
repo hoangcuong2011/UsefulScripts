@@ -502,3 +502,10 @@ Thirdly and lastly add it to the model fitting
 		
 Attention: I edited this post and changed the variable name from class_weight to class_weights in order to not to overwrite the imported module. Adjust accordingly when copying code from the comments.
 
+Actually, this code is not correct.
+
+Here is a correct code
+
+		model.fit(padded_x_train, y_train, epochs=30, verbose=0,
+          class_weight={0: 1, 1: 5}, validation_data=(padded_x_dev, y_dev))
+	  
