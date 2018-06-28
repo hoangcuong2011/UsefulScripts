@@ -484,3 +484,21 @@ And I can switch between multiple "normal" windows of an app using ⌘+`.
 	print(x)
 
 
+42. ** Weighting loss function in keras **
+
+You could simply implement the class_weight from sklearn:
+
+		Let's import the module first
+
+		from sklearn.utils import class_weight
+In order to calculate the class weight do the following
+
+		class_weights = class_weight.compute_class_weight('balanced',
+                                                 np.unique(y_train),
+                                                 y_train)
+Thirdly and lastly add it to the model fitting
+
+		model.fit(X_train, y_train, class_weight=class_weights)
+		
+Attention: I edited this post and changed the variable name from class_weight to class_weights in order to not to overwrite the imported module. Adjust accordingly when copying code from the comments.
+
