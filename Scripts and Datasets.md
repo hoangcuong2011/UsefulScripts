@@ -509,3 +509,19 @@ Here is a correct code
 		model.fit(padded_x_train, y_train, epochs=30, verbose=0,
           class_weight={0: 1, 1: 5}, validation_data=(padded_x_dev, y_dev))
 	  
+43. ** Get DBpedia dataset using tensorflow **
+
+		dbpedia = tf.contrib.learn.datasets.load_dataset(
+      			'dbpedia', size='large')
+  		x_train = pandas.Series(dbpedia.train.data[:, 1])
+  		y_train = pandas.Series(dbpedia.train.target)
+  		x_test = pandas.Series(dbpedia.test.data[:, 1])
+  		y_test = pandas.Series(dbpedia.test.target)
+  
+  It is quite weird that size has two options: 'small' and 'large'
+  The dataset (dbpedia) can be downloaded here: https://drive.google.com/file/d/1GgyCU86oxhi9E1P_z7rGnbjLDI1cjCFr/view?usp=sharing
+  
+  The DBpedia datasets are licensed under the terms of the Creative Commons Attribution-ShareAlike License and the GNU Free Documentation License. For more information, please refer to http://dbpedia.org. For a recent overview paper about DBpedia, please refer to: Jens Lehmann, Robert Isele, Max Jakob, Anja Jentzsch, Dimitris Kontokostas, Pablo N. Mendes, Sebastian Hellmann, Mohamed Morsey, Patrick van Kleef, Sören Auer, Christian Bizer: DBpedia – A Large-scale, Multilingual Knowledge Base Extracted from Wikipedia. Semantic Web Journal, Vol. 6 No. 2, pp 167–195, 2015.
+  
+  The DBPedia ontology classification dataset is constructed by Xiang Zhang (xiang.zhang@nyu.edu), licensed under the terms of the Creative Commons Attribution-ShareAlike License and the GNU Free Documentation License. This dataset was first used as a classification benchmark in the following technical report: Xiang Zhang, Yann LeCun, Text Understanding from Scratch, Arxiv 1502.01710.
+
