@@ -525,3 +525,10 @@ Here is a correct code
   
   The DBPedia ontology classification dataset is constructed by Xiang Zhang (xiang.zhang@nyu.edu), licensed under the terms of the Creative Commons Attribution-ShareAlike License and the GNU Free Documentation License. This dataset was first used as a classification benchmark in the following technical report: Xiang Zhang, Yann LeCun, Text Understanding from Scratch, Arxiv 1502.01710.
 
+
+44. **Get maximum length for different strings in an array.**
+
+	x_text = ['This is a cat','This must be boy', 'This is a a dog']
+	max_document_length = max([len(x.split(" ")) for x in x_text])
+
+Get maximum length for different strings in an array.
