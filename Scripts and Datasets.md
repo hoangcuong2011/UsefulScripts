@@ -532,3 +532,33 @@ Here is a correct code
 	max_document_length = max([len(x.split(" ")) for x in x_text])
 
 Get maximum length for different strings in an array.
+
+45. **Padding with CNN**
+
+
+324
+down vote
+If you like ascii art:
+
+"VALID" = without padding:
+
+   inputs:         1  2  3  4  5  6  7  8  9  10 11 (12 13)
+                  |________________|                dropped
+                                 |_________________|
+"SAME" = with zero padding:
+
+               pad|                                      |pad
+   inputs:      0 |1  2  3  4  5  6  7  8  9  10 11 12 13|0  0
+               |________________|
+                              |_________________|
+                                             |________________|
+In this example:
+
+Input width = 13
+Filter width = 6
+Stride = 5
+Notes:
+
+"VALID" only ever drops the right-most columns (or bottom-most rows).
+"SAME" tries to pad evenly left and right, but if the amount of columns to be added is odd, it will add the extra column to the right, as is the case in this example (the same logic applies vertically: there may be an extra row of zeros at the bottom).
+
