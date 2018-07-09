@@ -461,8 +461,6 @@ dependencies {
 On OS X apps I can switch between apps using ⌘+Tab.
 
 
-And I can switch between multiple "normal" windows of an app using ⌘+`.
-
 40. **Copy a file to clipboard in MacOS**
 
 	pbcopy < ~/.ssh/id_rsa.pub
@@ -484,7 +482,7 @@ And I can switch between multiple "normal" windows of an app using ⌘+`.
 	print(x)
 
 
-42. ** Weighting loss function in keras **
+42. **Weighting loss function in keras**
 
 You could simply implement the class_weight from sklearn:
 
@@ -509,7 +507,7 @@ Here is a correct code
 		model.fit(padded_x_train, y_train, epochs=30, verbose=0,
           class_weight={0: 1, 1: 5}, validation_data=(padded_x_dev, y_dev))
 	  
-43. ** Get DBpedia dataset using tensorflow **
+43. **Get DBpedia dataset using tensorflow**
 
 		dbpedia = tf.contrib.learn.datasets.load_dataset(
       			'dbpedia', size='large')
@@ -535,9 +533,6 @@ Get maximum length for different strings in an array.
 
 45. **Padding with CNN**
 
-
-324
-down vote
 If you like ascii art:
 
 "VALID" = without padding:
@@ -561,4 +556,34 @@ Notes:
 
 "VALID" only ever drops the right-most columns (or bottom-most rows).
 "SAME" tries to pad evenly left and right, but if the amount of columns to be added is odd, it will add the extra column to the right, as is the case in this example (the same logic applies vertically: there may be an extra row of zeros at the bottom).
+
+
+46 **Add regularizers in Neural Network**
+
+		tf_train_dataset = tf.placeholder(tf.float32, shape=(batch_size, image_size * image_size))
+		    tf_train_labels = tf.placeholder(tf.float32, shape=(batch_size, num_labels))
+		    tf_valid_dataset = tf.constant(valid_dataset)
+		    tf_test_dataset = tf.constant(test_dataset)
+
+		    # Variables.
+		    weights_1 = tf.Variable(tf.truncated_normal([image_size * image_size, num_nodes]))
+		    biases_1 = tf.Variable(tf.zeros([num_nodes]))
+		    weights_2 = tf.Variable(tf.truncated_normal([num_nodes, num_labels]))
+		    biases_2 = tf.Variable(tf.zeros([num_labels]))
+
+		    # Training computation.
+		    logits_1 = tf.matmul(tf_train_dataset, weights_1) + biases_1
+		    relu_layer= tf.nn.relu(logits_1)
+		    logits_2 = tf.matmul(relu_layer, weights_2) + biases_2
+		    # Normal loss function
+		    loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits_2, tf_train_labels))
+		    # Loss function with L2 Regularization with beta=0.01
+		    regularizers = tf.nn.l2_loss(weights_1) + tf.nn.l2_loss(weights_2)
+		    loss = tf.reduce_mean(loss + beta * regularizers)
+
+		    # Optimizer.
+		    optimizer = tf.train.GradientDescentOptimizer(0.5).minimize(loss)
+
+		    # Predictions for the training
+		    train_prediction = tf.nn.softmax(logits_2)
 
