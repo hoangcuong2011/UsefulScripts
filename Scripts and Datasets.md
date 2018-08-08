@@ -587,3 +587,12 @@ Notes:
 		    # Predictions for the training
 		    train_prediction = tf.nn.softmax(logits_2)
 
+
+47. **Stacking multiple LSTM using keras**
+
+		model = Sequential()
+		model.add(LSTM(512, return_sequences=True, input_shape=(10,13))
+		model.add(LSTM(512))
+		model.add(Dense(1201))
+
+https://github.com/keras-team/keras/issues/3522
