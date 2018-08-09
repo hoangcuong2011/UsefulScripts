@@ -596,3 +596,11 @@ Notes:
 		model.add(Dense(1201))
 
 https://github.com/keras-team/keras/issues/3522
+
+
+48. **clone only one branch with git**
+
+Git actually allows you to clone only one branch, for example:
+
+		git clone -b mybranch --single-branch git://sub.domain.com/repo.git
+
