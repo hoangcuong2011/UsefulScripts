@@ -605,7 +605,7 @@ Git actually allows you to clone only one branch, for example:
 		git clone -b mybranch --single-branch git://sub.domain.com/repo.git
 
 
-49. ** Remove folders/files in git **
+49. **Remove folders/files in git**
 
 .gitignore will prevent untracked files from being added (without an add -f) to the set of files tracked by git, however git will continue to track any files that are already being tracked.
 
@@ -614,3 +614,23 @@ To stop tracking a file you need to remove it from the index. This can be achiev
 git rm --cached <file>
 The removal of the file from the head revision will happen on the next commit.
 	
+
+50. **Adding more information during training tensorflow estimator**
+
+A very bad thing related to tf.estimator is that it is very hard to do basic things such as printing
+accuracy from training dataset.
+Here is a code that can help this (maccuracy)
+
+	    if mode == tf.estimator.ModeKeys.TRAIN:
+		optimizer = tf.train.AdamOptimizer(learning_rate=0.01)
+		train_op = optimizer.minimize(loss,
+					      global_step=tf.train.get_global_step())
+		accuracy = tf.metrics.accuracy(labels=labels, predictions=predicted_classes)
+		logging_hook = tf.train.LoggingTensorHook({"mloss": loss, "maccuracy": accuracy[1]}, every_n_iter=100)
+		return tf.estimator.EstimatorSpec(mode, loss=loss, train_op=train_op, training_hooks = [logging_hook])
+
+	    eval_metric_ops = {
+		'accuracy':
+		    tf.metrics.accuracy(labels=labels, predictions=predicted_classes)
+	    }
+    
