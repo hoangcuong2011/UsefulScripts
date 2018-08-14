@@ -634,3 +634,18 @@ Here is a code that can help this (maccuracy)
 		    tf.metrics.accuracy(labels=labels, predictions=predicted_classes)
 	    }
     
+
+An even more detail example:
+
+
+	    if mode == tf.estimator.ModeKeys.TRAIN:
+		optimizer = tf.train.AdamOptimizer(learning_rate=0.01)
+		train_op = optimizer.minimize(loss,
+					      global_step=tf.train.get_global_step())
+		accuracy = tf.metrics.accuracy(labels=labels, predictions=predicted_classes)
+
+		logging_hook = tf.train.LoggingTensorHook({"mloss": loss, "predicted classes": predicted_classes,
+							   "ground truth": labels, "maccuracy": accuracy[1]}, every_n_iter=100)
+		return tf.estimator.EstimatorSpec(mode, loss=loss, train_op=train_op, training_hooks = [logging_hook])
+
+	
