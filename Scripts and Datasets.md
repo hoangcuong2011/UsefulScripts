@@ -791,5 +791,5 @@ There are many ways to use fasttext with python. A simpler way is as follows:
 Then in the code:
 
 		import fastText as ft
-		model = ft.train_unsupervised(input='./datasets/train', maxn=0, dim=100, epoch=15, neg=15)
-		model.get_word_vector(word)
+		model = ft.train_unsupervised(input='dataset_file', maxn=0, dim=100, epoch=15, neg=15)
+		model.get_word_vector(a word)
