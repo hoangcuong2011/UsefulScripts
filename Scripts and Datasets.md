@@ -779,3 +779,17 @@ Python Ranking Dictionary Return Rank
 		nvidia-smi --loop-ms=1000
 
 
+55. **Using fastText with Python**
+https://github.com/facebookresearch/fastText
+
+There are many ways to use fasttext with python. A simpler way is as follows:
+
+		$ git clone https://github.com/facebookresearch/fastText.git
+		$ cd fastText
+		$ pip install .
+
+Then in the code:
+
+		import fastText as ft
+		model = ft.train_unsupervised(input='./datasets/train', maxn=0, dim=100, epoch=15, neg=15)
+		model.get_word_vector(word)
