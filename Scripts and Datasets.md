@@ -175,41 +175,41 @@ Note: production is the normal queue for processing your work. development is us
 
 20. **Good conda create new enviroment command**
 
-        conda create -n py27_env_tensor_gpu_pip_local numpy pip tensorflow-gpu python=2.7
+		conda create -n py27_env_tensor_gpu_pip_local numpy pip tensorflow-gpu python=2.7
         
 21. **Find command without Permission denied**
 
-        find / -name "octave" 2>/dev/null
+		find / -name "octave" 2>/dev/null
 
 22. **Install matlab.engine**
 
-        cd $(dirname $(realpath $(which matlab)))/../extern/engines/python
+		cd $(dirname $(realpath $(which matlab)))/../extern/engines/python
 
-        python setup.py build --build-base=$(mktemp -d) install
+		python setup.py build --build-base=$(mktemp -d) install
 
 23. **How to fix: “UnicodeDecodeError: 'ascii' codec can't decode byte”**
 
 https://stackoverflow.com/questions/21129020/how-to-fix-unicodedecodeerror-ascii-codec-cant-decode-byte see here
-        import sys  
+		import sys  
 
-        reload(sys)  
-        
-        sys.setdefaultencoding('utf8')
+		reload(sys)  
+
+		sys.setdefaultencoding('utf8')
 
 24. **Replacescript python**
 
 
-        filename = 'de_en_task3_train_features'
-        # Read in the file
-        with open(filename, 'r') as file :
-        filedata = file.read()
+		filename = 'de_en_task3_train_features'
+		# Read in the file
+		with open(filename, 'r') as file :
+		filedata = file.read()
 
-        # Replace the target string
-        filedata = filedata.replace('\t', ',')
+		# Replace the target string
+		filedata = filedata.replace('\t', ',')
 
-        # Write the file out again
-        with open(filename+'.replaced', 'w') as file:
-        file.write(filedata)
+		# Write the file out again
+		with open(filename+'.replaced', 'w') as file:
+		file.write(filedata)
 
 25. **Shuffle two arrays in Numpy**
 
@@ -259,49 +259,49 @@ Reference: https://github.com/hoangcuong2011/DeepKernelLearning/blob/master/Clas
 
 27. **Convert number to one-hot vector representation**
 
-        from sklearn.preprocessing import LabelEncoder
-	from keras.utils import np_utils
-        encoder = LabelEncoder()
-        encoder.fit(y_test)
-        encoded_Y = encoder.transform(y_test)
-        # convert integers to dummy variables (i.e. one hot encoded)
-        y_test = np_utils.to_categorical(encoded_Y)
+		from sklearn.preprocessing import LabelEncoder
+		from keras.utils import np_utils
+		encoder = LabelEncoder()
+		encoder.fit(y_test)
+		encoded_Y = encoder.transform(y_test)
+		# convert integers to dummy variables (i.e. one hot encoded)
+		y_test = np_utils.to_categorical(encoded_Y)
 
 28. **Read tensorflow trainable variables' value**
 
-        variables_names =[v.name for v in tf.trainable_variables()]
-        values = sess.run(variables_names)
-        for k,v in zip(variables_names, values):
-                print(k, v)
+		variables_names =[v.name for v in tf.trainable_variables()]
+		values = sess.run(variables_names)
+		for k,v in zip(variables_names, values):
+			print(k, v)
     
 29. **tokenize with NLTK**
 
-        >>> import nltk
-        >>> sentence = """At eight o'clock on Thursday morning
-        ... Arthur didn't feel very good."""
-        >>> tokens = nltk.word_tokenize(sentence)
-        >>> tokens
-        ['At', 'eight', "o'clock", 'on', 'Thursday', 'morning',
-        'Arthur', 'did', "n't", 'feel', 'very', 'good', '.']
+		>>> import nltk
+		>>> sentence = """At eight o'clock on Thursday morning
+		... Arthur didn't feel very good."""
+		>>> tokens = nltk.word_tokenize(sentence)
+		>>> tokens
+		['At', 'eight', "o'clock", 'on', 'Thursday', 'morning',
+		'Arthur', 'did', "n't", 'feel', 'very', 'good', '.']
 
 30. **shuffle data in linux**
 
 https://shapeshed.com/unix-shuf/
 
-shuf cards.txt
-4D
-9D
-QC
-3S
-6D
+		shuf cards.txt
+		4D
+		9D
+		QC
+		3S
+		6D
 
 
 31. **readfile python**
-        with open("feature.py") as f:	
-	        for line in f:
-		        line = line.strip()
-		        if(len(line)>0):
-			        print(line)
+		with open("feature.py") as f:	
+			for line in f:
+				line = line.strip()
+				if(len(line)>0):
+					print(line)
 
 32. **How to turn off dropout for testing in Tensorflow?**
 https://stackoverflow.com/questions/44971349/how-to-turn-off-dropout-for-testing-in-tensorflow
@@ -319,78 +319,78 @@ and when you evaluate the default value of 1.0 is used.
 
 33. **Read and convert words to word count**
 
-	def read_data(raw_text):
-		content = raw_text
-		content = content.split() #splits the text by spaces (default split character)
-		content = np.array(content)
-		#print(content)
-		content = np.reshape(content, [-1, ])
-		#print(content)
-		return content
+		def read_data(raw_text):
+			content = raw_text
+			content = content.split() #splits the text by spaces (default split character)
+			content = np.array(content)
+			#print(content)
+			content = np.reshape(content, [-1, ])
+			#print(content)
+			return content
 
-	training_data = read_data(fable_text)
+		training_data = read_data(fable_text)
 
-	def build_dictionaries(words):
-	    count = collections.Counter(words).most_common() #creates list of word/count pairs;
-	    print(count)
-	    dictionary = dict()
-	    for word, _ in count:
-		dictionary[word] = len(dictionary) #len(dictionary) increases each iteration
-		reverse_dictionary = dict(zip(dictionary.values(), dictionary.keys()))
-	    return dictionary, reverse_dictionary
+		def build_dictionaries(words):
+		    count = collections.Counter(words).most_common() #creates list of word/count pairs;
+		    print(count)
+		    dictionary = dict()
+		    for word, _ in count:
+			dictionary[word] = len(dictionary) #len(dictionary) increases each iteration
+			reverse_dictionary = dict(zip(dictionary.values(), dictionary.keys()))
+		    return dictionary, reverse_dictionary
 
-	dictionary, reverse_dictionary = build_dictionaries(training_data)
+		dictionary, reverse_dictionary = build_dictionaries(training_data)
 
 34. **updatedb in MACOS**
 
-sudo /usr/libexec/locate.updatedb
+		sudo /usr/libexec/locate.updatedb
 
 
 35. **pom.xml - maven**
 
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+		<?xml version="1.0" encoding="UTF-8"?>
+		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>Agolo</groupId>
-    <artifactId>hello-world-maven</artifactId>
-    <packaging>jar</packaging>
-    <version>0.1.0</version>
+		    <groupId>Agolo</groupId>
+		    <artifactId>hello-world-maven</artifactId>
+		    <packaging>jar</packaging>
+		    <version>0.1.0</version>
 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+		    <properties>
+			<maven.compiler.source>1.8</maven.compiler.source>
+			<maven.compiler.target>1.8</maven.compiler.target>
+		    </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>hello.HelloWorld</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-</project>
+		    <build>
+			<plugins>
+			    <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.1</version>
+				<executions>
+				    <execution>
+					<phase>package</phase>
+					<goals>
+					    <goal>shade</goal>
+					</goals>
+					<configuration>
+					    <transformers>
+						<transformer
+						    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+						    <mainClass>hello.HelloWorld</mainClass>
+						</transformer>
+					    </transformers>
+					</configuration>
+				    </execution>
+				</executions>
+			    </plugin>
+			</plugins>
+		    </build>
+		</project>
 
-https://spring.io/guides/gs/maven/
+		https://spring.io/guides/gs/maven/
 
 
 
@@ -398,62 +398,62 @@ https://spring.io/guides/gs/maven/
 
 add this line to ~/.vimrc (if not exist, create a new file)
 
-:set nu
+		:set nu
 and save the file
 
 
 37. **gradle example**
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'application'
+		apply plugin: 'java'
+		apply plugin: 'eclipse'
+		apply plugin: 'application'
 
-mainClassName = 'hello.HelloWorld'
+		mainClassName = 'hello.HelloWorld'
 
-// tag::repositories[]
-repositories {
-    mavenCentral()
-}
-// end::repositories[]
+		// tag::repositories[]
+		repositories {
+		    mavenCentral()
+		}
+		// end::repositories[]
 
-// tag::jar[]
-jar {
-    baseName = 'gs-gradle'
-    version =  '0.1.0'
-}
-// end::jar[]
+		// tag::jar[]
+		jar {
+		    baseName = 'gs-gradle'
+		    version =  '0.1.0'
+		}
+		// end::jar[]
 
-// tag::dependencies[]
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+		// tag::dependencies[]
+		sourceCompatibility = 1.8
+		targetCompatibility = 1.8
 
-dependencies {
-    compile "joda-time:joda-time:2.2"
-    testCompile "junit:junit:4.12"
-}
-// end::dependencies[]
+		dependencies {
+		    compile "joda-time:joda-time:2.2"
+		    testCompile "junit:junit:4.12"
+		}
+		// end::dependencies[]
 
-// tag::wrapper[]
-// end::wrapper[]
+		// tag::wrapper[]
+		// end::wrapper[]
 
 
 38. **Common Jsoup commands**
 
 
         
-        String html = "<p>An <a href='http://example.com/'><b>example</b></a> link.</p>";
-        doc = Jsoup.parse(html);
-        Element linkE = doc.select("a").first();
+		String html = "<p>An <a href='http://example.com/'><b>example</b></a> link.</p>";
+		doc = Jsoup.parse(html);
+		Element linkE = doc.select("a").first();
 
-        String text = doc.body().text(); // "An example link"
-        String linkHref = linkE.attr("href"); // "http://example.com/"
-        String linkText = linkE.text(); // "example""
+		String text = doc.body().text(); // "An example link"
+		String linkHref = linkE.attr("href"); // "http://example.com/"
+		String linkText = linkE.text(); // "example""
 
-        String linkOuterH = linkE.outerHtml();
-        // "<a href="http://example.com"><b>example</b></a>"
-        String linkInnerH = linkE.html(); // "<b>example</b>"
-        
-        System.out.println(text);
+		String linkOuterH = linkE.outerHtml();
+		// "<a href="http://example.com"><b>example</b></a>"
+		String linkInnerH = linkE.html(); // "<b>example</b>"
+
+		System.out.println(text);
 	
 	
 39. **Shortcut in MacOS**
@@ -463,23 +463,23 @@ On OS X apps I can switch between apps using ⌘+Tab.
 
 40. **Copy a file to clipboard in MacOS**
 
-	pbcopy < ~/.ssh/id_rsa.pub
+		pbcopy < ~/.ssh/id_rsa.pub
 
 41. **Change an element in numpy array python**
 
-	import numpy as np
+		import numpy as np
 
-	x = np.array([[ 0.42436315, 0.48558583, 0.32924763], [ 0.7439979,0.58220701,0.38213418], [ 0.5097581,0.34528799,0.1563123 ]])
+		x = np.array([[ 0.42436315, 0.48558583, 0.32924763], [ 0.7439979,0.58220701,0.38213418], [ 0.5097581,0.34528799,0.1563123 ]])
 
-	print("Original array:")
+		print("Original array:")
 
-	print(x)
+		print(x)
 
-	print("Replace all elements of the said array with .5 which are greater than .5")
+		print("Replace all elements of the said array with .5 which are greater than .5")
 
-	x[x > .5] = .5
+		x[x > .5] = .5
 
-	print(x)
+		print(x)
 
 
 42. **Weighting loss function in keras**
@@ -712,3 +712,65 @@ Python Ranking Dictionary Return Rank
 		>>> r = {key: rank for rank, key in enumerate(sorted(set(x.values()), reverse=True), 1)}
 		>>> {k: r[v] for k,v in x.items()}
 		{'a': 1, 'b': 3, 'd': 2, 'c': 2}
+		
+		
+53. **git: How do I get the latest version of my code?**
+
+
+
+		167
+		down vote
+		Case 1: Don’t care about local changes
+
+		Solution 1: Get the latest code and reset the code
+
+		git fetch origin
+		git reset --hard origin/[tag/branch/commit-id usually: master]
+		Solution 2: Delete the folder and clone again :D
+
+		rm -rf [project_folder]
+		git clone [remote_repo]
+		Case 2: Care about local changes
+
+		Solution 1: no conflicts with new-online version
+
+		git fetch origin
+		git status
+		will report something like:
+
+		Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+		Then get the latest version
+
+		git pull
+		Solution 2: conflicts with new-online version
+
+		git fetch origin
+		git status
+		will report something like:
+
+		error: Your local changes to the following files would be overwritten by merge:
+		    file_name
+		Please, commit your changes or stash them before you can merge.
+		Aborting
+		Commit your local changes
+
+		git add .
+		git commit -m ‘Commit msg’
+		Try to get the changes (will fail)
+
+		git pull
+		will report something like:
+
+		Pull is not possible because you have unmerged files.
+		Please, fix them up in the work tree, and then use 'git add/rm <file>'
+		as appropriate to mark resolution, or use 'git commit -a'.
+		Open the conflict file and fix the conflict. Then:
+
+		git add .
+		git commit -m ‘Fix conflicts’
+		git pull
+		will report something like:
+
+		Already up-to-date.
+		More info: How do I use 'git reset --hard HEAD' to revert to a previous commit?
+
