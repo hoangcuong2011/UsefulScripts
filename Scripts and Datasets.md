@@ -678,3 +678,37 @@ generate a matrix
 			[ 1.,  1.,  1.],
 			[ 2.,  2.,  2.]])
 		Hope this helps!
+
+52. **Python Ranking Dictionary Return Rank**
+
+https://stackoverflow.com/questions/30282600/python-ranking-dictionary-return-rank
+
+Python Ranking Dictionary Return Rank
+
+		I have a python dictionary:
+
+		x = {'a':10.1,'b':2,'c':5}
+
+		How do I go about ranking and returning the rank value? Like getting back:
+
+		res = {'a':1,c':2,'b':3}
+
+		Thanks
+
+		If I understand correctly, you can simply use sorted to get the ordering, and then enumerate to number them:
+
+		>>> x = {'a':10.1, 'b':2, 'c':5}
+		>>> sorted(x, key=x.get, reverse=True)
+		['a', 'c', 'b']
+		>>> {key: rank for rank, key in enumerate(sorted(x, key=x.get, reverse=True), 1)}
+		{'b': 3, 'c': 2, 'a': 1}
+		Note that this assumes that the ranks are unambiguous. If you have ties, the rank order among the tied keys will be arbitrary. It's easy to handle that too using similar methods, for example if you wanted all the tied keys to have the same rank. We have
+
+		>>> x = {'a':10.1, 'b':2, 'c': 5, 'd': 5}
+		>>> {key: rank for rank, key in enumerate(sorted(x, key=x.get, reverse=True), 1)}
+		{'a': 1, 'b': 4, 'd': 3, 'c': 2}
+		but
+
+		>>> r = {key: rank for rank, key in enumerate(sorted(set(x.values()), reverse=True), 1)}
+		>>> {k: r[v] for k,v in x.items()}
+		{'a': 1, 'b': 3, 'd': 2, 'c': 2}
