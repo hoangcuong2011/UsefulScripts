@@ -649,3 +649,30 @@ An even more detail example:
 		return tf.estimator.EstimatorSpec(mode, loss=loss, train_op=train_op, training_hooks = [logging_hook])
 
 	
+	
+51. **Difference between np.array and np.asarray**
+
+The difference can be demonstrated by this example:
+
+generate a matrix
+
+>>> A = numpy.matrix(np.ones((3,3)))
+>>> A
+matrix([[ 1.,  1.,  1.],
+        [ 1.,  1.,  1.],
+        [ 1.,  1.,  1.]])
+use numpy.array to modify A. Doesn't work because you are modifying a copy
+
+>>> numpy.array(A)[2]=2
+>>> A
+matrix([[ 1.,  1.,  1.],
+        [ 1.,  1.,  1.],
+        [ 1.,  1.,  1.]])
+use numpy.asarray to modify A. It worked because you are modifying A itself
+
+>>> numpy.asarray(A)[2]=2
+>>> A
+matrix([[ 1.,  1.,  1.],
+        [ 1.,  1.,  1.],
+        [ 2.,  2.,  2.]])
+Hope this helps!
