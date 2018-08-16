@@ -774,3 +774,8 @@ Python Ranking Dictionary Return Rank
 		Already up-to-date.
 		More info: How do I use 'git reset --hard HEAD' to revert to a previous commit?
 
+54. **Check GPU usages**
+
+		nvidia-smi --loop-ms=1000
+
+
