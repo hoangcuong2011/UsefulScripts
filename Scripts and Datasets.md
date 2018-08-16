@@ -652,27 +652,29 @@ An even more detail example:
 	
 51. **Difference between np.array and np.asarray**
 
+https://stackoverflow.com/questions/14415741/numpy-array-vs-asarray
+
 The difference can be demonstrated by this example:
 
 generate a matrix
 
->>> A = numpy.matrix(np.ones((3,3)))
->>> A
-matrix([[ 1.,  1.,  1.],
-        [ 1.,  1.,  1.],
-        [ 1.,  1.,  1.]])
-use numpy.array to modify A. Doesn't work because you are modifying a copy
+		>>> A = numpy.matrix(np.ones((3,3)))
+		>>> A
+		matrix([[ 1.,  1.,  1.],
+			[ 1.,  1.,  1.],
+			[ 1.,  1.,  1.]])
+		use numpy.array to modify A. Doesn't work because you are modifying a copy
 
->>> numpy.array(A)[2]=2
->>> A
-matrix([[ 1.,  1.,  1.],
-        [ 1.,  1.,  1.],
-        [ 1.,  1.,  1.]])
-use numpy.asarray to modify A. It worked because you are modifying A itself
+		>>> numpy.array(A)[2]=2
+		>>> A
+		matrix([[ 1.,  1.,  1.],
+			[ 1.,  1.,  1.],
+			[ 1.,  1.,  1.]])
+		use numpy.asarray to modify A. It worked because you are modifying A itself
 
->>> numpy.asarray(A)[2]=2
->>> A
-matrix([[ 1.,  1.,  1.],
-        [ 1.,  1.,  1.],
-        [ 2.,  2.,  2.]])
-Hope this helps!
+		>>> numpy.asarray(A)[2]=2
+		>>> A
+		matrix([[ 1.,  1.,  1.],
+			[ 1.,  1.,  1.],
+			[ 2.,  2.,  2.]])
+		Hope this helps!
