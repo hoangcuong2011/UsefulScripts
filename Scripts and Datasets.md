@@ -793,3 +793,13 @@ Then in the code:
 		import fastText as ft
 		model = ft.train_unsupervised(input='dataset_file', maxn=0, dim=100, epoch=15, neg=15)
 		model.get_word_vector(a word)
+		
+		
+56. **initialize an list with 60 zeros you do**
+
+To initialize an list with 60 zeros you do:
+
+List<Integer> list = new ArrayList<Integer>(Collections.nCopies(60, 0));
+	
+	
+	
