@@ -802,4 +802,6 @@ To initialize an list with 60 zeros you do:
 List<Integer> list = new ArrayList<Integer>(Collections.nCopies(60, 0));
 	
 	
+57. **keras - flatten a tensor**
 	
+		x = Flatten()(x)
