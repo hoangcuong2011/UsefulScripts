@@ -835,3 +835,15 @@ List<Integer> list = new ArrayList<Integer>(Collections.nCopies(60, 0));
 59. **yield in python**
 
 When you call a function that contains a yield statement anywhere, you get a generator object, but no code runs. Then each time you extract an object from the generator, Python executes code in the function until it comes to a yield statement, then pauses and delivers the object. When you extract another object, Python resumes just after the yield and continues until it reaches another yield (often the same one, but one iteration later). This continues until the function runs off the end, at which point the generator is deemed exhausted
+
+
+60. **defaultdict in python**
+
+		>>> from collections import defaultdict
+		>>> food_list = 'spam spam spam spam spam spam eggs spam'.split()
+		>>> food_count = defaultdict(int) # default value of int is 0
+		>>> for food in food_list:
+		...     food_count[food] += 1 # increment element's value by 1
+		...
+		defaultdict(<type 'int'>, {'eggs': 1, 'spam': 7})
+		>>>
