@@ -805,3 +805,29 @@ List<Integer> list = new ArrayList<Integer>(Collections.nCopies(60, 0));
 57. **keras - flatten a tensor**
 	
 		x = Flatten()(x)
+		
+58. **parser funtion for main function in python**
+
+		def parse_args(parser):
+			parser.add_option("-m", "--model", dest="model_name", type="string", default="best_TransE_L2")
+			parser.add_option("-d", "--data", dest="data_name", type="string", default="wn18")
+			parser.add_option("-r", "--relation", dest="relation", action="store_true", default=False)
+			parser.add_option("-s", "--save", dest="save", action="store_true", default=False)
+
+			options, args = parser.parse_args()
+			return options, args
+
+		def main(options):
+			logger = logging.getLogger()
+			logging.basicConfig(format='[%(asctime)s] %(levelname)s: %(message)s', level=logging.INFO)
+			train(options.model_name, options.data_name,
+				params_dict=param_space_dict[options.model_name],
+				logger=logger, eval_by_rel=options.relation, if_save=options.save)
+
+		if __name__ == "__main__":
+			parser = OptionParser()
+			print(parser)
+			print(type(parser))
+			options, args = parse_args(parser)
+			main(options)
+
