@@ -916,3 +916,18 @@ Then from the code we can use Lambda wrapper:
 		attention_output = Lambda(attention_mechanism, arguments={'w': W})(hidden_hotel)
 		
 See this for a reference: https://github.com/keras-team/keras/pull/1911
+
+66. **return best model with keras**
+
+		best_weights_filepath = './my_model_best_weights.hdf5'
+				earlyStopping = EarlyStopping(monitor='val_loss',
+														 patience=10, verbose=1, mode='auto')
+				saveBestModel = ModelCheckpoint(best_weights_filepath,
+														   monitor='val_loss', verbose=1,
+														   save_best_only=True, mode='auto')
+				model.fit([X_train_hotel_sequence, X_train_user_ids], y_train,
+						  validation_data=([X_valid_hotel_sequence, X_valid_user_ids], y_valid),
+						  epochs=number_of_epoch, callbacks=[earlyStopping, saveBestModel], verbose=2)
+				model.load_weights(best_weights_filepath)
+			evaluate_with_rnn(model, tokenizer_hotel_sequence, test_hotel_sequence, max_sequence_hotel_len,
+							  tokenizer_user_id, test_user_ids, max_sequence_user_id_len)
