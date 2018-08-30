@@ -914,3 +914,5 @@ Let's assume we have this function with two parameters hidden_hotel_sequence and
 Then from the code we can use Lambda wrapper:
 
 		attention_output = Lambda(attention_mechanism, arguments={'w': W})(hidden_hotel)
+		
+See this for a reference: https://github.com/keras-team/keras/pull/1911
