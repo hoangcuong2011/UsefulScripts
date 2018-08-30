@@ -881,3 +881,14 @@ In recurrent networks and in 1D convolutions, you can also make the length/times
 		r = Reshape((-1, 20))(r)
 
 
+63. **How to use lambda layer in keras?**
+
+		import keras.backend as K
+		def myFunc(x):
+		    return x[0] * x[1]
+		    
+And then:
+		cross1 = Lambda(myFunc, output_shape=....)([d1,d4])
+		cross2 = Lambda(myFunc, output_shape=....)([d2,d3])
+
+
