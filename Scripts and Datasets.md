@@ -884,6 +884,9 @@ In recurrent networks and in 1D convolutions, you can also make the length/times
 
 63. **How to use lambda layer in keras?**
 
+See here for a reference https://stackoverflow.com/questions/51963377/keras-nonetype-object-has-no-attribute-inbound-nodes
+
+
 		import keras.backend as K
 		def myFunc(x):
 		    return x[0] * x[1]
