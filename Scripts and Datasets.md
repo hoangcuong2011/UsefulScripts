@@ -895,4 +895,6 @@ And then:
 		
 		cross2 = Lambda(myFunc, output_shape=....)([d2,d3])
 
+64. **Get the last cell from a LSTM sequence from Keras**
 
+		last_timestep = Lambda(lambda x: x[:, -1, :])(lstm_layer)
