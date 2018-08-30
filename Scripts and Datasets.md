@@ -901,3 +901,16 @@ And then:
 64. **Get the last cell from a LSTM sequence from Keras**
 
 		last_timestep = Lambda(lambda x: x[:, -1, :])(lstm_layer)
+
+
+65. **Lambda wrapper for keras with a function that has multiple parameters**
+
+Lambda layer enhancements
+
+Let's assume we have this function with two parameters hidden_hotel_sequence and w
+
+		def attention_mechanism(hidden_hotel_sequence, w):
+		
+Then from the code we can use Lambda wrapper:
+
+		attention_output = Lambda(attention_mechanism, arguments={'w': W})(hidden_hotel)
