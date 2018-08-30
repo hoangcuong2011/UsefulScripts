@@ -847,3 +847,37 @@ When you call a function that contains a yield statement anywhere, you get a gen
 		...
 		defaultdict(<type 'int'>, {'eggs': 1, 'spam': 7})
 		>>>
+
+61. **None in keras**
+
+https://stackoverflow.com/questions/47240348/what-is-the-meaning-of-the-none-in-model-summary-of-keras
+
+None means this dimension is variable.
+
+The first dimension in a keras model is always the batch size. You don't need fixed batch sizes, unless in very specific cases (for instance, when working with stateful=True LSTM layers).
+
+That's why this dimension is often ignored when you define your model. For instance, when you define input_shape=(100,200), actually you're ignoring the batch size and defining the shape of "each sample". Internally the shape will be (None, 100, 200), allowing a variable batch size, each sample in the batch having the shape (100,200).
+
+The batch size will be then automatically defined in the fit or predict methods.
+
+Other None dimensions:
+
+Not only the batch dimension can be None, but many others as well.
+
+For instance, in a 2D convolutional network, where the expected input is (batchSize, height, width, channels), you can have shapes like (None, None, None, 3), allowing variable image sizes.
+
+In recurrent networks and in 1D convolutions, you can also make the length/timesteps dimension variable, with shapes like (None, None, featuresOrChannels)
+
+62. **Different operations in Keras**
+
+
+		tanh_hidden_hotel = tf.transpose(tanh_hidden_hotel, perm=[0, 2, 1])
+		embedding_user = Flatten()(embedding_user)
+		r = K.dot(hidden_hotel, alpha)
+		alpha = Permute((1, 2))(alpha)
+		from keras import backend as K
+		r = K.reshape(r, (-1, 20))
+		from keras.layers import Reshape
+		r = Reshape((-1, 20))(r)
+
+
