@@ -879,6 +879,7 @@ In recurrent networks and in 1D convolutions, you can also make the length/times
 		r = K.reshape(r, (-1, 20))
 		from keras.layers import Reshape
 		r = Reshape((-1, 20))(r)
+		combine_input = concatenate([attention_output, last_hidden])
 
 
 63. **How to use lambda layer in keras?**
