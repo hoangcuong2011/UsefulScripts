@@ -931,3 +931,14 @@ See this for a reference: https://github.com/keras-team/keras/pull/1911
 				model.load_weights(best_weights_filepath)
 			evaluate_with_rnn(model, tokenizer_hotel_sequence, test_hotel_sequence, max_sequence_hotel_len,
 							  tokenizer_user_id, test_user_ids, max_sequence_user_id_len)
+
+
+67. **write json file in python**
+
+		f = open(export_path+'config', "w", encoding='utf-8')
+		f.write(json.dumps({"word2id": word2id,
+				    "relation2id": relation2id,
+				    "word_size": word_size,
+				    "fixlen": fixlen,
+				    "maxlen": maxlen}))
+		f.close()
