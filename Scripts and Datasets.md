@@ -949,11 +949,6 @@ Some simple example that help us debug tensor operators easier.
 
 
 
-		import numpy as np
-		import tensorflow as tf
-		import keras.backend as K
-		from keras.layers import multiply
-
 		tf.set_random_seed(100)
 		batch = 3
 		length = 2
@@ -966,10 +961,11 @@ Some simple example that help us debug tensor operators easier.
 		print(a_original, a, b, c)
 
 		with tf.Session() as sess:
-			print(sess.run(a_original))
-			print("transpose")
-			print(sess.run(a))
+			a_original, a, b, c = sess.run([a_original, a, b, c])
+			print(a_original)
+			print("a")
+			print(a)
 			print("b")
-			print(sess.run(b))
+			print(b)
 			print("c")
-			print(sess.run(c))
+			print(c)
