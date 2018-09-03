@@ -942,3 +942,34 @@ See this for a reference: https://github.com/keras-team/keras/pull/1911
 				    "fixlen": fixlen,
 				    "maxlen": maxlen}))
 		f.close()
+
+68. **Play with keras- tensorflow**
+
+Some simple example that help us debug tensor operators easier.
+
+
+
+		import numpy as np
+		import tensorflow as tf
+		import keras.backend as K
+		from keras.layers import multiply
+
+		tf.set_random_seed(100)
+		batch = 3
+		length = 2
+		cell = 4
+		a_original = tf.random_uniform((2, 3, 4))
+		a = tf.transpose(a_original, perm=[2, 0, 1])
+		b = tf.random_uniform((2, 3))
+		c = tf.multiply(a, b)
+
+		print(a_original, a, b, c)
+
+		with tf.Session() as sess:
+			print(sess.run(a_original))
+			print("transpose")
+			print(sess.run(a))
+			print("b")
+			print(sess.run(b))
+			print("c")
+			print(sess.run(c))
