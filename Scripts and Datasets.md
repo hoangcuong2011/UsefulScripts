@@ -969,3 +969,19 @@ Some simple example that help us debug tensor operators easier.
 			print(b)
 			print("c")
 			print(c)
+
+
+69. **pass default argument in python**
+
+		parser = argparse.ArgumentParser()
+		parser.add_argument("-m", "--modelType", help="The kind of model you want to test, either ntm, dense or lstm", default="lstm")
+		parser.add_argument("-e", "--epochs", help="The number of epochs to train", default="3", type=int)
+		parser.add_argument("-c", "--ntm_controller_architecture", help="""Valid choices are: dense, double_dense or
+						    lstm. Ignored if model is not ntm""", default="dense")
+		parser.add_argument("-v", "--verboose", help="""Verboose training: If enabled, the model is evaluated extensively
+						    after each training epoch.""", action="store_true")
+		args = parser.parse_args()
+		modelType = args.modelType
+		epochs = args.epochs
+		ntm_controller_architecture = args.ntm_controller_architecture
+		verboose = args.verboose
