@@ -985,3 +985,93 @@ Some simple example that help us debug tensor operators easier.
 		epochs = args.epochs
 		ntm_controller_architecture = args.ntm_controller_architecture
 		verboose = args.verboose
+
+
+70. **different loss functions in keras**
+
+		def mean_squared_error(y_true, y_pred):
+		    return K.mean(K.square(y_pred - y_true), axis=-1)
+
+
+		def mean_absolute_error(y_true, y_pred):
+		    return K.mean(K.abs(y_pred - y_true), axis=-1)
+
+
+		def mean_absolute_percentage_error(y_true, y_pred):
+		    diff = K.abs((y_true - y_pred) / K.clip(K.abs(y_true),
+							    K.epsilon(),
+							    None))
+		    return 100. * K.mean(diff, axis=-1)
+
+
+		def mean_squared_logarithmic_error(y_true, y_pred):
+		    first_log = K.log(K.clip(y_pred, K.epsilon(), None) + 1.)
+		    second_log = K.log(K.clip(y_true, K.epsilon(), None) + 1.)
+		    return K.mean(K.square(first_log - second_log), axis=-1)
+
+
+		def squared_hinge(y_true, y_pred):
+		    return K.mean(K.square(K.maximum(1. - y_true * y_pred, 0.)), axis=-1)
+
+
+		def hinge(y_true, y_pred):
+		    return K.mean(K.maximum(1. - y_true * y_pred, 0.), axis=-1)
+
+
+		def categorical_hinge(y_true, y_pred):
+		    pos = K.sum(y_true * y_pred, axis=-1)
+		    neg = K.max((1. - y_true) * y_pred, axis=-1)
+		    return K.maximum(0., neg - pos + 1.)
+
+
+		def logcosh(y_true, y_pred):
+		    """Logarithm of the hyperbolic cosine of the prediction error.
+		    `log(cosh(x))` is approximately equal to `(x ** 2) / 2` for small `x` and
+		    to `abs(x) - log(2)` for large `x`. This means that 'logcosh' works mostly
+		    like the mean squared error, but will not be so strongly affected by the
+		    occasional wildly incorrect prediction.
+		    # Arguments
+			y_true: tensor of true targets.
+			y_pred: tensor of predicted targets.
+		    # Returns
+			Tensor with one scalar loss entry per sample.
+		    """
+		    def _logcosh(x):
+			return x + K.softplus(-2. * x) - K.log(2.)
+		    return K.mean(_logcosh(y_pred - y_true), axis=-1)
+
+
+		def categorical_crossentropy(y_true, y_pred):
+		    return K.categorical_crossentropy(y_true, y_pred)
+
+
+		def sparse_categorical_crossentropy(y_true, y_pred):
+		    return K.sparse_categorical_crossentropy(y_true, y_pred)
+
+
+		def binary_crossentropy(y_true, y_pred):
+		    return K.mean(K.binary_crossentropy(y_true, y_pred), axis=-1)
+
+
+		def kullback_leibler_divergence(y_true, y_pred):
+		    y_true = K.clip(y_true, K.epsilon(), 1)
+		    y_pred = K.clip(y_pred, K.epsilon(), 1)
+		    return K.sum(y_true * K.log(y_true / y_pred), axis=-1)
+
+
+		def poisson(y_true, y_pred):
+		    return K.mean(y_pred - y_true * K.log(y_pred + K.epsilon()), axis=-1)
+
+
+		def cosine_proximity(y_true, y_pred):
+		    y_true = K.l2_normalize(y_true, axis=-1)
+		    y_pred = K.l2_normalize(y_pred, axis=-1)
+		    return -K.sum(y_true * y_pred, axis=-1)
+
+ranking loss (BPR: https://arxiv.org/pdf/1511.06939.pdf)
+
+		def custom_objective(y_true, y_pred):
+			abc = y_true * y_pred
+			a = K.max(abc, axis=-1)
+			a = keras.layers.Subtract()([a, y_pred])
+			return K.mean(sigmoid(a),axis=-1)
