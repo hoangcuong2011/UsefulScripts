@@ -1074,4 +1074,4 @@ ranking loss (BPR: https://arxiv.org/pdf/1511.06939.pdf)
 			abc = y_true * y_pred
 			a = K.max(abc, axis=-1)
 			a = keras.layers.Subtract()([a, y_pred])
-			return K.mean(sigmoid(a),axis=-1)
+			return - K.mean(K.log(sigmoid(a)),axis=-1)
