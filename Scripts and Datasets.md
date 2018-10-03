@@ -1075,3 +1075,15 @@ ranking loss (BPR: https://arxiv.org/pdf/1511.06939.pdf)
 			a = K.max(abc, axis=-1)
 			a = keras.layers.Subtract()([a, y_pred])
 			return - K.mean(K.log(sigmoid(a)),axis=-1)
+			
+71 **categorical_crossentropy vs sparse_categorical_crossentropy**
+		If your targets are one-hot encoded, use categorical_crossentropy.
+		Examples of one-hot encodings:
+		[1,0,0]
+		[0,1,0]
+		[0,0,1]
+		But if your targets are integers, use sparse_categorical_crossentropy.
+		Examples of integer encodings (for the sake of completion):
+		1
+		2
+		3
