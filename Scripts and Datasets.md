@@ -1077,6 +1077,7 @@ ranking loss (BPR: https://arxiv.org/pdf/1511.06939.pdf)
 			return - K.mean(K.log(sigmoid(a)),axis=-1)
 			
 71 **categorical_crossentropy vs sparse_categorical_crossentropy**
+		
 		If your targets are one-hot encoded, use categorical_crossentropy.
 		Examples of one-hot encodings:
 		[1,0,0]
@@ -1087,3 +1088,16 @@ ranking loss (BPR: https://arxiv.org/pdf/1511.06939.pdf)
 		1
 		2
 		3
+
+72. **GRU in tensorflow**
+
+		def gru(units):
+			# If you have a GPU, we recommend using CuDNNGRU(provides a 3x speedup than GRU)
+			#  the code automatically does that.
+			if tf.test.is_gpu_available():
+				return tf.keras.layers.GRU(units, return_sequences=True, return_state=True, recurrent_initializer='glorot_uniform')
+			else:
+				return tf.keras.layers.GRU(units, return_sequences=True, return_state=True, recurrent_activation='sigmoid', recurrent_initializer='glorot_uniform')
+
+
+Check this for reference https://github.com/hoangcuong2011/ntm
