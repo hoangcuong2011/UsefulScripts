@@ -1,5 +1,7 @@
 1. **elementwise in tensorflow with eager execution**
 
+note: tf.multiply(y, t) is equivalent to *
+
         from __future__ import absolute_import, division, print_function
 
         import tensorflow as tf
@@ -72,3 +74,15 @@
                 array([[0.08311912, 0.16828507, 0.21970797, 0.24620101, 0.27651483,
                         0.363123  ]], dtype=float32)>
 
+
+3. **tf.expand_dim**
+
+                # 't' is a tensor of shape [2]
+                tf.shape(tf.expand_dims(t, 0))  # [1, 2]
+                tf.shape(tf.expand_dims(t, 1))  # [2, 1]
+                tf.shape(tf.expand_dims(t, -1))  # [2, 1]
+
+                # 't2' is a tensor of shape [2, 3, 5]
+                tf.shape(tf.expand_dims(t2, 0))  # [1, 2, 3, 5]
+                tf.shape(tf.expand_dims(t2, 2))  # [2, 3, 1, 5]
+                tf.shape(tf.expand_dims(t2, 3))  # [2, 3, 5, 1]
