@@ -1101,3 +1101,38 @@ ranking loss (BPR: https://arxiv.org/pdf/1511.06939.pdf)
 
 
 Check this for reference https://github.com/hoangcuong2011/ntm
+
+
+73. **Read configuration file from Java and Python**
+
+		Properties prop = new Properties();
+			String propFileName = "resources/config_filtering_models.txt";
+			FileReader reader = new FileReader(propFileName);
+			prop.load(reader);
+			input_file = prop.getProperty("input_file");
+			dice_output_file_ranking = prop.getProperty("dice_output_file_ranking");
+			wordembedding_output_file_ranking = prop.getProperty("dice_output_file_ranking");
+			classification_output_ranking_file = prop.getProperty("classification_output_ranking_file");
+			ner_output_file_ranking = prop.getProperty("ner_output_file_ranking");
+			ner_output_file_ranking = prop.getProperty("ner_output_file_ranking");
+			cut_off_ranking_dice = Integer.parseInt(prop.getProperty("cut_off_ranking_dice"));
+			cut_off_ranking_wordembedding = Integer.parseInt(prop.getProperty("cut_off_ranking_wordembedding"));
+			cut_off_ranking_classification = Integer.parseInt(prop.getProperty("cut_off_ranking_classification"));
+			cut_off_ranking_ner = Integer.parseInt(prop.getProperty("cut_off_ranking_ner"));
+			final_relation_extraction_produced_output = prop.getProperty("final_relation_extraction_produced_output");
+			if (prop.getProperty("remove_if_not_contain_important_words").compareToIgnoreCase("yes")==0) {
+			    remove_if_not_contain_important_words = true;
+			}
+	
+	
+	
+
+		cfg = configparser.ConfigParser()
+		filename = 'resources/config_filtering_models.txt'
+		with open(filename) as fp:
+			cfg.read_file(itertools.chain(['[global]'], fp), source=filename)
+		print(cfg.items('global'))
+		seed_number = int(cfg.get('global', 'seed_number'))
+		batch_size = seed_number * 2  # entity numbers used each training time
+		input_file = cfg.get('global', 'input_file')
+		test_file = cfg.get('global', 'testFile')
