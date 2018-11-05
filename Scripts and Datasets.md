@@ -1170,3 +1170,10 @@ Check this for reference https://github.com/hoangcuong2011/ntm
 		array(['pooh', 'pooh', 'pooh', 'Christopher', 'piglet'],
 		      dtype='|S11')
       
+
+75. **set python to run on a specific GPU**
+
+import os
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"]="2"
+
