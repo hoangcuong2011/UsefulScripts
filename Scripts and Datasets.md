@@ -1214,6 +1214,56 @@ Check this for reference https://github.com/hoangcuong2011/ntm
 
 
 
+some key questions:
+
+1. does output of RNN and LSTM have non-linear activation function?
+
+2. does crf contains two parts???
+
+3. how do backprop proplery?
+
+
+
+There are two different ways to make use of neighbor tag information in predicting current tags. The first is to predict a distribution of tags for each time step and then use beam-like decoding to find optimal
+tag sequences. The work of maximum entropy classifier (Ratnaparkhi, 1996) and Maximum entropy
+Markov models (MEMMs) (McCallum et al., 2000) fall in this category. The second one is to focus on sentence level instead of individual positions, thus leading to Conditional Random Fields (CRF) models (Lafferty et al., 2001) 
+
+
+Disadvantages
+
+CRF is highly computationally complex at the training stage of the algorithm. It makes it very difficult to re-train the model when newer data becomes available.
+
+LSTM-CRF networks
+We combine a LSTM network and a CRF network to form a LSTM-CRF model, which is shown in Fig. 6. This network can efficiently use past input features via a LSTM layer and sentence level tag information via a CRF layer. A CRF layer is represented by lines which connect consecutive output layers. A CRF layer has a state transition matrix as parameters. With such a layer, we can efficiently use past and future tags to predict the current tag
+
+
+
+Agreement on Target-bidirectional Neural Machine Translation
+Lemao Liu, Masao Utiyama, Andrew Finch, Eiichiro Sumita
+have two models - left2right and right2left that is trained jointly. In the end, during decoding we run the two models, get the best top k and then merge the score together.
+
+
+
+https://www.lyrn.ai/2018/11/30/gpipe-training-giant-neural-nets-using-pipeline-parallelism/
+
+http://www.inference.org.uk/hmw26/papers/crf_intro.pdf
+
+https://arxiv.org/pdf/1603.01354.pdf
+
+https://arxiv.org/pdf/1508.01991.pdf
+https://www.depends-on-the-definition.com/sequence-tagging-lstm-crf/
+
+
+https://www.slideshare.net/panchendrarajanruba/neural-architectures-for-named-entity-recognition
+
+
+https://github.com/tensorflow/tensorflow/blob/r1.12/tensorflow/contrib/crf/python/ops/crf.py
+
+
+
+https://jmetzen.github.io/2015-04-14/calibration.html
+
+
 
 
 
