@@ -1211,6 +1211,26 @@ Check this for reference https://github.com/hoangcuong2011/ntm
 
 
 
+77. **Generating classification dataset with sklearn**
+
+		from sklearn.datasets import make_classification
+		from sklearn import ensemble
+		from sklearn.calibration import CalibratedClassifierCV
+		from sklearn.metrics import log_loss
+		from sklearn import cross_validation
+
+		X, y = make_classification(n_samples=1000,
+					   n_features=1000,
+					   n_informative=30,
+					   n_redundant=0,
+					   n_repeated=0,
+					   n_classes=9,
+					   random_state=0,
+					   shuffle=False)
+
+		print(X)
+		print(y)
+
 
 
 
