@@ -1286,6 +1286,14 @@ https://jmetzen.github.io/2015-04-14/calibration.html
 
 
 
+https://medium.com/value-stream-design/introducing-one-of-the-best-hacks-in-machine-learning-the-hashing-trick-bf6a9c8af18f
+
+
+https://booking.ai/dont-be-tricked-by-the-hashing-trick-192a6aae3087
+
+
+https://blog.someben.com/2013/01/hashing-lang/
+
 
 
 
