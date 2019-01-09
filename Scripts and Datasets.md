@@ -1249,7 +1249,10 @@ reference: https://blog.keras.io/building-autoencoders-in-keras.html
 		encoder = Model(inputs, encoded)
 
 79. **ensemble models in keras**
+
 reference: https://towardsdatascience.com/ensembling-convnets-using-keras-237d429157eb
+
+
 		def model_1(input_length, output_class_size):
 			input = Input(shape=(input_length,))
 			output = Dense(output_class_size, activation='softmax')(input)
