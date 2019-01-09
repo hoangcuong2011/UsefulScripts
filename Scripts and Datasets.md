@@ -1247,3 +1247,31 @@ reference: https://blog.keras.io/building-autoencoders-in-keras.html
 
 		sequence_autoencoder = Model(inputs, decoded)
 		encoder = Model(inputs, encoded)
+
+79. **ensemble models in keras**
+reference: https://towardsdatascience.com/ensembling-convnets-using-keras-237d429157eb
+		def model_1(input_length, output_class_size):
+			input = Input(shape=(input_length,))
+			output = Dense(output_class_size, activation='softmax')(input)
+			return Model(inputs=input, outputs=output)
+
+
+		def model_2(input_length, output_class_size):
+			input = Input(shape=(input_length,))
+			output = Dense(output_class_size, activation='softmax')(input)
+			return Model(inputs=input, outputs=output)
+
+		def ensemble(models, input_length, output_class_size):
+			input = Input(shape=(input_length,))
+			outputs = []
+			for model in models:
+				outputs.append(model(input))
+			output = Average()(outputs)
+			model = Model(inputs=input, outputs=output, name='ensemble')
+			return model
+		model1 = model_1()
+		model2 = model_2()
+
+		ensemble_model = ensemble([model1, model2], input_length, output_class_size)
+
+
