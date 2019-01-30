@@ -1,3 +1,14 @@
+"""
+https://apmonitor.com/pdc/index.php/Main/SolveDifferentialEquations
+https://lazyprogrammer.me/neural-ordinary-differential-equations/
+
+https://blog.acolyer.org/2019/01/09/neural-ordinary-differential-equations/
+https://towardsdatascience.com/paper-summary-neural-ordinary-differential-equations-37c4e52df128
+https://rkevingibson.github.io/blog/neural-networks-as-ordinary-differential-equations/
+https://github.com/jason71995/Keras_ODENet/blob/master/mnist_odenet.py
+https://www.reddit.com/r/MachineLearning/comments/a65v5r/neural_ordinary_differential_equations_pdf/
+"""
+
 import tensorflow as tf
 import keras.backend as K
 import keras
