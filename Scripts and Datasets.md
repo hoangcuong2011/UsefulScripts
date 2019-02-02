@@ -1278,3 +1278,12 @@ reference: https://towardsdatascience.com/ensembling-convnets-using-keras-237d42
 		ensemble_model = ensemble([model1, model2], input_length, output_class_size)
 
 
+80. **requirements**
+
+		In the working virtualenv, create a file with the version of each installed Python library :
+
+		pip freeze > requirements.txt
+		In the new virtualenv, ask pip to install those libraries with the same version :
+
+		pip install -r requirements.txt
+
