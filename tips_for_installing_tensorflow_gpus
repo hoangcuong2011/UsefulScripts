@@ -1,0 +1,17 @@
+Install tensorflow-gpu (my OS: ubuntu 16.04) is somewhat a mess, so I wrote these following things as tips:
+
+    1. We should use anaconda, it is very helpful
+    2. Anaconda should be installed on python 2.7. You can do whatever you want to do later by creating new enviroment, but basically -> python 2.7 should be used for installing anaconda
+    3. you should create enviroment in this way.
+    conda create -n py36_env_tensor_gpu_pip_local numpy pip python=3.6
+    whatever you do next: pip install bla bla bla, it will installed locally on this enviroment. that is very helpful.
+    Also it may not be a good idea to install tensorflow-gpu via conda, you should install tensorflow-gpu by using pip install
+    The latest version now: 1.12.0 (as of 1 Feb 2019)
+    4. You can get trouble with running cnn (as of 1 Feb 2019)
+    2019-02-03 06:41:18.775172: E tensorflow/stream_executor/cuda/cuda_dnn.cc:363] Loaded runtime CuDNN library: 7.0.5 but source was compiled with: 7.1.4.  CuDNN library major and minor version needs to match or have higher minor version in case of CuDNN 7.0 or later version. If using a binary install, upgrade your CuDNN library.  If building from sources, make sure the library loaded at runtime is compatible with the version specified during compile configuration.
+
+
+    So the tip:
+    pip install --upgrade --force-reinstall tensorflow-gpu==1.9.0
+
+    somehow tensorflow-gpu version 1.9.0 works well, but not 1.12.0
