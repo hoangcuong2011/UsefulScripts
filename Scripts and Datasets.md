@@ -1287,3 +1287,17 @@ reference: https://towardsdatascience.com/ensembling-convnets-using-keras-237d42
 
 		pip install -r requirements.txt
 
+
+81. **learning rate decay**
+
+		def scheduler(epoch):
+		    if epoch == 5:
+			model.lr.set_value(.02)
+		    return model.lr.get_value()
+
+		change_lr = LearningRateScheduler(scheduler)
+
+		model.fit(x_embed, y, nb_epoch=1, batch_size = batch_size, show_accuracy=True,
+		       callbacks=[chage_lr])
+       
+       
