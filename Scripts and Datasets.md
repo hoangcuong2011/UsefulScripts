@@ -1320,3 +1320,31 @@ reference: https://gist.github.com/hoangcuong2011/2f1e421d35db0193b513678eae31e7
 
 		model.fit(X_train, Y_train, callbacks=[lr_sched])
 
+
+output is something like this:
+
+		loss: 4.2416 - acc: 0.5438 - val_loss: 3.8026 - val_acc: 0.5961
+		loss: 3.7341 - acc: 0.6040 - val_loss: 3.7058 - val_acc: 0.6097
+		loss: 3.6075 - acc: 0.6187 - val_loss: 3.6014 - val_acc: 0.6208
+		loss: 3.5884 - acc: 0.6200 - val_loss: 3.6015 - val_acc: 0.6184
+		loss: 3.5298 - acc: 0.6248 - val_loss: 3.5471 - val_acc: 0.6243
+		loss: 3.5165 - acc: 0.6254 - val_loss: 3.5449 - val_acc: 0.6250
+		loss: 3.4762 - acc: 0.6280 - val_loss: 3.4928 - val_acc: 0.6281
+		loss: 3.4687 - acc: 0.6284 - val_loss: 3.4952 - val_acc: 0.6276
+		loss: 3.4399 - acc: 0.6297 - val_loss: 3.4530 - val_acc: 0.6293
+		loss: 3.4321 - acc: 0.6299 - val_loss: 3.4536 - val_acc: 0.6294
+		loss: 3.4088 - acc: 0.6309 - val_loss: 3.4220 - val_acc: 0.6303
+		loss: 3.4027 - acc: 0.6310 - val_loss: 3.4162 - val_acc: 0.6310
+		loss: 3.3828 - acc: 0.6316 - val_loss: 3.3967 - val_acc: 0.6312
+		loss: 3.3780 - acc: 0.6316 - val_loss: 3.3992 - val_acc: 0.6312
+		loss: 3.3631 - acc: 0.6320 - val_loss: 3.3834 - val_acc: 0.6316
+		loss: 3.3566 - acc: 0.6322 - val_loss: 3.3765 - val_acc: 0.6315
+		loss: 3.3447 - acc: 0.6324 - val_loss: 3.3656 - val_acc: 0.6320
+		loss: 3.3410 - acc: 0.6325 - val_loss: 3.3609 - val_acc: 0.6320
+		loss: 3.3311 - acc: 0.6327 - val_loss: 3.3528 - val_acc: 0.6322
+		loss: 3.3301 - acc: 0.6327 - val_loss: 3.3511 - val_acc: 0.6323
+		loss: 3.3211 - acc: 0.6329 - val_loss: 3.3439 - val_acc: 0.6324
+		loss: 3.3169 - acc: 0.6329 - val_loss: 3.3395 - val_acc: 0.6324
+		loss: 3.3101 - acc: 0.6331 - val_loss: 3.3352 - val_acc: 0.6325
+
+
