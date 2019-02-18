@@ -53,3 +53,20 @@ The question is: Is it really true that learning rate should be scaled with batc
     18	9	0.01201355	0.000187712
     19	9	0.01201355	0.000187712
     20	10	0.009010162	0.000140784
+    
+    
+   Does it give the best result? I am not so sure. But at least it gives better result than having a single and fixed learning rate.
+   
+For instance:
+with batchsize 32 - learning rate 0.00025: accuracy: 0.628
+the loss function increases in the middle.
+with batchsize 32 - learning rate 0.000125: accuracy: 0.6316
+the loss function increases in the middle.
+with batchsize 32 - learning rate 0.0005: accuracy: 0.6286
+the loss function increases in the middle.
+
+but with the above training scheme, I can improve the accuracy to 0.6331
+
+
+
+
