@@ -1418,3 +1418,8 @@ paper: https://openreview.net/pdf?id=rkjZ2Pcxe
 		    return NoisyOptimizer
 
 
+84. **convert a tensor to int32 in keras**
+
+		labels = tf.cast(x_input, tf.int32)
+
+
