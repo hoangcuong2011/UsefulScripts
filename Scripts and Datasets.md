@@ -1422,4 +1422,11 @@ paper: https://openreview.net/pdf?id=rkjZ2Pcxe
 
 		labels = tf.cast(x_input, tf.int32)
 
+85. **Install box - need this for openAIGYM**
 
+		brew install swig
+
+		$git clone https://github.com/pybox2d/pybox2d pybox2d_dev
+		$cd pybox2d_dev
+		$python setup.py build 
+		$sudo python setup.py install
