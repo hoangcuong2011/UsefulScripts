@@ -1468,3 +1468,15 @@ Use it:
 		def dice_coef_loss(y_true, y_pred):
 		    return 1-dice_coef(y_true, y_pred)
 
+88. **write a dictionary to numpy-format files**
+
+		import numpy as np
+
+		# Save
+		dictionary = {'hello':'world'}
+		np.save('my_file.npy', dictionary) 
+
+		# Load
+		read_dictionary = np.load('my_file.npy').item()
+		print(read_dictionary['hello']) # displays "world"
+
