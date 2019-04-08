@@ -1480,3 +1480,21 @@ Use it:
 		read_dictionary = np.load('my_file.npy').item()
 		print(read_dictionary['hello']) # displays "world"
 
+89. **another way to write custom loss for simpler cases***
+
+		# define model
+		def l1_reg(weight_matrix):
+		    return 0.01 * K.sum(K.abs(weight_matrix))
+
+		wts = model.layers[-1].trainable_weights # -1 for last dense layer.
+		reg_loss = l1_reg(wts[0]) + l1_reg(wts[1])
+
+		def custom_loss(reg_loss):
+		    def orig_loss(y_true, y_pred):
+			return K.categorical_crossentropy(y_true, y_pred) + reg_loss
+		    return orig_loss
+
+		model.compile(loss=custom_loss(reg_loss),
+			      optimizer=keras.optimizers.Adadelta(),
+			      metrics=['accuracy'])
+
