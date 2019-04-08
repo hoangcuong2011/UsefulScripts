@@ -1498,3 +1498,10 @@ Use it:
 			      optimizer=keras.optimizers.Adadelta(),
 			      metrics=['accuracy'])
 
+
+90. **get batch size from NONE**
+
+		batch_size = K.shape(u_vecs)[0]
+		input_num_capsule = K.shape(u_vecs)[1]
+		
+		
