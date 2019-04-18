@@ -1552,5 +1552,11 @@ Do not use bias before batch normalization (see this) https://www.dlology.com/bl
 		model.add(layers.BatchNormalization())
 		model.add(Activation("relu"))
 
+92. **Some ways of combining information in two branch of a net** 
+
+reference: https://twitter.com/karpathy/status/1109961535630143491
+
+		Some ways of combining information in two branch of a net A & B: 1) A+B, 2) A*B, 3) concat [A,B], 4) LSTM-style tanh(A) * sigmoid(B), 5) hypernetwork-style convolve A with weights w = f(B), 6) hypernetwork-style batch-norm A with \gamma, \beta = f(B), 7) A soft attend to B, ... ?
+
 
 
