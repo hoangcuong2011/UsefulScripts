@@ -1546,3 +1546,11 @@ In your case above, this might look like:
 		model.fit(X_train, y_train, nb_epoch=20, batch_size=16, show_accuracy=True, validation_split=0.2, verbose = 2)
 Hope this clarifies things a bit more.
 
+Do not use bias before batch normalization (see this) https://www.dlology.com/blog/one-simple-trick-to-train-keras-model-faster-with-batch-normalization/
+
+		model.add(layers.Dense(64, use_bias=False))
+		model.add(layers.BatchNormalization())
+		model.add(Activation("relu"))
+
+
+
