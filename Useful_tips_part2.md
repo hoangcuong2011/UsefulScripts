@@ -36,3 +36,10 @@ Something like this:
 
         shared_LSTM = LSTM(word_embedding_size, return_sequences=True)
         x_left = shared_LSTM(x_left, initial_state=[vector1, vector2])
+        
+        
+4. **get shape for unknown shape tensor**
+
+        tf.keras.backend.int_shape
+
+I found this function provides exactly the same goal as tf.shape().
