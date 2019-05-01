@@ -30,3 +30,9 @@ Reference: https://stackoverflow.com/questions/42122168/keras-how-to-construct-a
         # here samples means ?
         
         
+3. **set initial cell states for LSTM (which can be learnable))**
+
+Something like this:
+
+        shared_LSTM = LSTM(word_embedding_size, return_sequences=True)
+        x_left = shared_LSTM(x_left, initial_state=[vector1, vector2])
