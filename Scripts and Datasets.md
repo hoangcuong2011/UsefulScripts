@@ -1559,4 +1559,12 @@ reference: https://twitter.com/karpathy/status/1109961535630143491
 		Some ways of combining information in two branch of a net A & B: 1) A+B, 2) A*B, 3) concat [A,B], 4) LSTM-style tanh(A) * sigmoid(B), 5) hypernetwork-style convolve A with weights w = f(B), 6) hypernetwork-style batch-norm A with \gamma, \beta = f(B), 7) A soft attend to B, ... ?
 
 
+93. **get columns from two dimension vectors**
 
+		 X_train_sequence_topic = X_train_sequence_topic[0:len(X_train_sequence_topic),20:30]
+ 
+ or two specific columns:
+
+		I assume you wanted columns 1 and 9? That's
+
+		data[:, [1, 9]]
