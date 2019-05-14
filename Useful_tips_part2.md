@@ -43,3 +43,10 @@ Something like this:
         tf.keras.backend.int_shape
 
 I found this function provides exactly the same goal as tf.shape().
+
+5. **Learn to specify the shape of input in a custom layer**
+reference: https://github.com/keras-team/keras/blob/master/keras/layers/normalization.py#L16
+        self.input_spec = InputSpec(ndim=len(input_shape),
+                                            axes={self.axis: dim})
+                                 
+                                 
