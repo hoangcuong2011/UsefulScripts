@@ -50,3 +50,10 @@ reference: https://github.com/keras-team/keras/blob/master/keras/layers/normaliz
                                             axes={self.axis: dim})
                                  
                                  
+ 6. **f1 score from sklearn**
+
+         from sklearn.metrics import f1_score
+         f1_score(np.array([1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]), np.array([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]), average='binary')  
+
+
+ 
