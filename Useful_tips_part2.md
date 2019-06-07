@@ -150,3 +150,15 @@ setup.py will be something as:
         )
 
 reference for distributing the package within organization: https://blog.chezo.uno/simple-way-to-distribute-your-private-python-packages-within-your-organization-fb7af5dbd4c9
+
+
+9. **repeat vector with tensorflow**
+Let us assume we have an input with size: (batch_size, 100). And we want to create a new vector: (batch_size, 100, 50), where 50 extra dimension is repeated from each of the 100 elements. How can we do that in tensorflow?
+Here is the way
+
+        a = tf.expand_dims(input, -1)
+		b = tf.keras.backend.repeat_elements(a, 50, -1)
+		print(b)
+        
+        
+        
