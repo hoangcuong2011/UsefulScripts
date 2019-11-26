@@ -2134,3 +2134,10 @@ Example of this:
 		  [ 135]
 		  [   6]
 		  [   3]]]
+
+
+95. **two common commands in tensorflow and numpy"
+
+1. num_sents = np.expand_dims(num_sents, axis=-1) -> turn something like this: [a b c] to [[a], [b], [c]]
+
+2. c = tf.keras.backend.squeeze(input_numsents, axis=-1) -> turn something like this: [[a], [b], [c]] to [a, b, c]
