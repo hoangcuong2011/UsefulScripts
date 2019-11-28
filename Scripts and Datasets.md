@@ -2136,8 +2136,8 @@ Example of this:
 		  [   3]]]
 
 
-95. **two common commands in tensorflow and numpy"
+95. **popular common commands in tensorflow and numpy"
 
-1. num_sents = np.expand_dims(num_sents, axis=-1) -> turn something like this: [a b c] to [[a], [b], [c]]
+		1. num_sents = tf.keras.backend.expand_dims(num_sents, axis=-1) -> turn something like this: [a b c] to [[a], [b], [c]]
 
-2. c = tf.keras.backend.squeeze(input_numsents, axis=-1) -> turn something like this: [[a], [b], [c]] to [a, b, c]
+		2. c = tf.keras.backend.squeeze(input_numsents, axis=-1) -> turn something like this: [[a], [b], [c]] to [a, b, c]
