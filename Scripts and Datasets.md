@@ -2138,6 +2138,25 @@ Example of this:
 
 95. **popular common commands in tensorflow and numpy"
 
-		1. num_sents = tf.keras.backend.expand_dims(num_sents, axis=-1) -> turn something like this: [a b c] to [[a], [b], [c]]
+		num_sents = tf.keras.backend.expand_dims(num_sents, axis=-1) -> turn something like this: [a b c] to [[a], [b], [c]]
 
-		2. c = tf.keras.backend.squeeze(input_numsents, axis=-1) -> turn something like this: [[a], [b], [c]] to [a, b, c]
+		c = tf.keras.backend.squeeze(input_numsents, axis=-1) -> turn something like this: [[a], [b], [c]] to [a, b, c]
+
+
+96. **cumsum in tensorflow keras**
+
+I found cumsum is a powerful command for us to build a position sequence for a sequence.
+Let us assume we have a tensor x represents an input (batchsize, sequence), we can do as follows:
+
+
+	#declare an embedding layer for position
+	pos_embedding_layer = tensorflow.keras.layers.Embedding(input_dim=(max_seq_length+1), 
+            output_dim=word_embedding_size, 
+            input_length=max_seq_length, mask_zero=True, trainable=True)
+	    
+	pos_idss = tf.cumsum(tf.ones_like(x, 'int32'), axis=-1)
+        ones_tensor = Input(tensor=pos_idss, name = "pos_idss")
+        pos_ids_embeddings = pos_embedding_layer(ones_tensor)
+	
+
+the tricky thing here, indeed, is to create a "pseudo" keras input. otherwise it does not work.
