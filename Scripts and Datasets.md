@@ -1504,6 +1504,18 @@ Use it:
 		batch_size = K.shape(u_vecs)[0]
 		input_num_capsule = K.shape(u_vecs)[1]
 		
+		
+    A specific example: I have a tensor: pos_ids_fr_mask with shape:
+
+		pos_ids_fr_mask Tensor("encoder_layer/concat:0", shape=(?, 4096), dtype=float32)
+		
+		
+    The first dimension is unknown, which is actually the batch size. I want to split pos_ids_fr_mask into (?, 64, 64). To do that here is the code:
+    
+    
+		pos_ids_fr_mask = K.reshape(pos_ids_fr_mask, (K.shape(pos_ids_fr_mask)[0], 64, 64))
+
+		
 91. **Batch normalization in keras**
 
 Reference:
