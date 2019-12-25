@@ -2172,3 +2172,11 @@ Let us assume we have a tensor x represents an input (batchsize, sequence), we c
 	
 
 the tricky thing here, indeed, is to create a "pseudo" keras input. otherwise it does not work.
+
+97. **deep copy a tensor in tensorflow**
+
+		https://www.tensorflow.org/api_docs/python/tf/identity?version=stable
+		tf.identity(
+		    input,
+		    name=None
+		)
