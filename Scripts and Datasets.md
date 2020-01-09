@@ -2180,3 +2180,23 @@ the tricky thing here, indeed, is to create a "pseudo" keras input. otherwise it
 		    input,
 		    name=None
 		)
+
+98. **shuffle a pair of lists together**
+
+		import random
+
+		a = ['a', 'b', 'c']
+		b = [1, 2, 3]
+
+		c = list(zip(a, b))
+
+		random.shuffle(c)
+
+		a, b = zip(*c)
+
+		print a
+		print b
+
+		[OUTPUT]
+		['a', 'c', 'b']
+		[1, 3, 2]
