@@ -46,3 +46,39 @@ I found those scripts useful to preprocess a public wmt 2014 training dataset. T
 
     perl $CLEAN -ratio 1.5 $tmp/train.tok.bpe $src $tgt $tmp/train.final.clean 1 150
 
+
+
+
+
+
+
+Another example of such scripts
+
+
+
+
+    SCRIPTS=/home/ubuntu/mosesdecoder/scripts
+    TOKENIZER=$SCRIPTS/tokenizer/tokenizer.perl
+    CLEAN=$SCRIPTS/training/clean-corpus-n.perl
+    NORM_PUNC=$SCRIPTS/tokenizer/normalize-punctuation.perl
+    REM_NON_PRINT_CHAR=$SCRIPTS/tokenizer/remove-non-printing-char.perl
+
+    cat ./train.en | perl $NORM_PUNC en | perl $REM_NON_PRINT_CHAR | perl $TOKENIZER -threads 8 -a -l en >> ./train.tok.en
+
+
+
+    SCRIPTS=/home/ubuntu/mosesdecoder/scripts
+    TOKENIZER=$SCRIPTS/tokenizer/tokenizer.perl
+    CLEAN=$SCRIPTS/training/clean-corpus-n.perl
+    NORM_PUNC=$SCRIPTS/tokenizer/normalize-punctuation.perl
+    REM_NON_PRINT_CHAR=$SCRIPTS/tokenizer/remove-non-printing-char.perl
+
+    cat ./train.fr | perl $NORM_PUNC fr | perl $REM_NON_PRINT_CHAR | perl $TOKENIZER -threads 8 -a -l fr >> ./train.tok.fr
+
+
+    cat ./train.tok.en ./train.tok.fr | subword-nmt learn-bpe -s 32000 -o ./wmt_en_fr_32K_bpe_code
+
+
+
+    nohup subword-nmt apply-bpe -c ./wmt_en_fr_32K_bpe_code < ./train.tok.fr > ./train.tok.bpe.fr &
+    nohup subword-nmt apply-bpe -c ./wmt_en_fr_32K_bpe_code < ./train.tok.en > ./train.tok.bpe.en &
