@@ -82,3 +82,5 @@ Another example of such scripts
 
     nohup subword-nmt apply-bpe -c ./wmt_en_fr_32K_bpe_code < ./train.tok.fr > ./train.tok.bpe.fr &
     nohup subword-nmt apply-bpe -c ./wmt_en_fr_32K_bpe_code < ./train.tok.en > ./train.tok.bpe.en &
+    
+    nohup perl /home/ubuntu/mosesdecoder/scripts/training/clean-corpus-n.perl -ratio 1.5 ./train.tok.bpe en fr ./train.final.clean 1 150
