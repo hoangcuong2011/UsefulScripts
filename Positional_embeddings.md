@@ -1,4 +1,4 @@
-There are two possible ways of implemnting positional embeddings for Transformer from some sources from the Internet.
+There are two possible ways of implemnting positional embeddings for Transformer from some sources on the Internet.
 
 1. Implemented something like this (I could not remember the public source)
 
@@ -11,7 +11,7 @@ There are two possible ways of implemnting positional embeddings for Transformer
         print(type(PE))
         return PE
 
-2. Implemetned like this (This is from fairseq)
+2. Implemented something like this (This is from fairseq)
 
     def positional_embedding(max_length, model_size, padding_idx=1):
         half_dim = model_size // 2
